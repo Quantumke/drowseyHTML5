@@ -12,7 +12,7 @@
     cursor: pointer;
 }
 .logo-strip{
-
+ color: #C2C2C2;
     height: 500px;
     background: url(../img/default.jpg);
     background-size: cover;
@@ -33,6 +33,13 @@ font-family: 'Sacramento', cursive;
     font-weight: bolder;
     font-size: 30px;
 }
+.site-title{
+ text-transform: uppercase;
+    margin-left: 25%;
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
 .buttn{
     border: 2px solid #00A7E6;
     height: 40px;
@@ -43,7 +50,7 @@ font-family: 'Sacramento', cursive;
     font-weight: bold;
   float: left;
     background-color: #00A7E6;
-    margin-left: 40%;
+
     cursor: pointer;
 }
 .buttn2{
