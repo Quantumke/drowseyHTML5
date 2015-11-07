@@ -1670,7 +1670,7 @@ body {
  * and Firefox.
  * Correct `block` display not defined for `main` in IE 11.
  */
-article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
   display: block; }
 
 /**
@@ -4759,8 +4759,7 @@ nav ul a span.badge {
 .mdi-maps-rate-review:before {
   content: "\e89a"; }
 
-.mdi-maps-restaurant-menu:before {
-  content: "\e89b"; }
+
 
 .mdi-maps-satellite:before {
   content: "\e89c"; }
@@ -4819,8 +4818,7 @@ nav ul a span.badge {
 .mdi-navigation-fullscreen:before {
   content: "\e8ae"; }
 
-.mdi-navigation-menu:before {
-  content: "\e8af"; }
+
 
 .mdi-navigation-more-horiz:before {
   content: "\e8b0"; }
