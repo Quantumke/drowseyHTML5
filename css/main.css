@@ -12,3 +12,23 @@
 
     cursor: pointer;
 }
+.logo-strip{
+
+    height: 500px;
+    background: url(../img/default.jpg);
+    background-size: cover;
+    overflow: hidden;
+}
+.l-strip{
+font-family: 'Sacramento', cursive;
+    font-size: 30px;
+    margin-top: 30px;
+    font-weight: bolder;
+}
+.lg-img{
+    height: 200px;
+    width: 200px;
+    background: url(../img/logo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
