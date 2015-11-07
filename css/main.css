@@ -27,3 +27,47 @@ font-family: 'Sacramento', cursive;
 .lg-img{
    margin-top: 20px;
 }
+.site-tile{
+ text-transform: uppercase;
+    margin-left: 25%;
+    font-weight: bolder;
+    font-size: 30px;
+}
+.buttn{
+    border: 2px solid #00A7E6;
+    height: 40px;
+    width: 120px;
+    padding-left: 30px;
+    padding-top: 7px;
+    text-transform: uppercase;
+    font-weight: bold;
+  float: left;
+    background-color: #00A7E6;
+    margin-left: 40%;
+    cursor: pointer;
+}
+.buttn2{
+    border: 2px solid #716558;
+    height: 40px;
+    width: 120px;
+    padding-left: 30px;
+    padding-top: 7px;
+    text-transform: uppercase;
+    font-weight: bold;
+   float: left;
+    background-color: #716558;
+    margin-left: 20px;
+    cursor: pointer;
+}
+.buttons{
+ margin-left: 25%;
+}
+.buttn:hover{
+     border: 2px solid #00A7E6;
+    background-color: transparent;
+
+}
+.buttn2:hover{
+    border: 2px solid #716558;
+    background-color: transparent;
+}
