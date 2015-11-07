@@ -1,0 +1,14 @@
+.header-strip{
+    background: #4A4C41;
+    height: 30px;
+    width: 100%;
+    color: #C2C2C2;
+}
+.renters{
+    border-right: 1px solid #C2C2C2;
+}
+.h-strip{
+ margin-top: 5px;
+
+    cursor: pointer;
+}
