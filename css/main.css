@@ -256,3 +256,12 @@ border: 2px solid #706C5B;
     border-left: 1px solid  #999999;
     background-color: #999999;;
 }
+#gallery{width:410px;text-align:center;margin:0 auto}
+#gallery .slides li{list-style:none;display:none;position:relative;opacity:.8}
+#gallery .slides li.active{background:#f00;display:block;opacity:1}
+#gallery .slides img{width:410px;display:block}
+#gallery .nav{text-align:center;margin:10px 0}
+#gallery .nav li{display:inline-block}
+#gallery .nav a{width:13px;height:13px;display:block;background: url(../img/nav.png) no-repeat;cursor:pointer;text-indent:-99999px}
+#gallery .nav a:hover{width:13px;height:13px;display:block;background:url(../img/nav.png) no-repeat 0 -13px;cursor:pointer;text-indent:-999em}
+#gallery .nav a.active{width:13px;height:13px;display:block;background:url(../img/nav.png) no-repeat 0 -26px}
