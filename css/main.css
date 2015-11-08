@@ -1,3 +1,6 @@
+body{
+ background-color: #F7F7F7;
+}
 .header-strip{
     background: #4A4C41;
     width: 100%;
@@ -106,6 +109,7 @@ margin-left: 700%;
 }
 .bannerme{
 margin-top: 30px;
+    background: #F7F7F7;
 }
 .bner{
     background-color: #716558;
