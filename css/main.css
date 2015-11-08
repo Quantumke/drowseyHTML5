@@ -1,5 +1,6 @@
 body{
  background-color: #F7F7F7;
+
 }
 .header-strip{
     background: #4A4C41;
@@ -136,7 +137,7 @@ margin-top: 30px;
 
             }
 .logo-popup{
- border-bottom: 2px solid #716558;
+
 }
 
 .search-bar{
@@ -144,7 +145,7 @@ margin-top: 30px;
 }
 
 		.sidecontentpullout {
-			background-color: Black;
+			background-color: #00A7E6;
 			color: White;
 			padding: 4px 3px;
 			-moz-border-radius-bottomleft: 1em;
@@ -153,6 +154,7 @@ margin-top: 30px;
 			-webkit-border-top-left-radius: 1em;
 			border-bottom-left-radius: 1em;
 			border-top-left-radius: 1em;
+                font-family: 'Armata', sans-serif;
 		}
 
 		.sidecontentpullout:hover {
@@ -161,14 +163,43 @@ margin-top: 30px;
 		}
 
 		.sidecontent {
-			background-color: Black;
+			background-color: #00A7E6;
 			color: White;
 			-moz-border-radius-bottomleft: 1em;
 			-webkit-border-bottom-left-radius: 1em;
 			border-bottom-left-radius: 1em;
+                font-family: 'Armata', sans-serif;
 		}
 
 		.sidecontent > div > div {
 			padding-left: 10px;
 			padding-right: 40px;
 		}
+.btn-offer{
+ border: 2px solid #706C5B;
+    width: 70%;
+    height: 40px;
+    padding-top: 7px;
+    padding-left: 50px;
+    color: #706C5B;
+    cursor: pointer;
+    background-color: transparent;
+    margin-left: 30px;
+}
+.btn-offer:hover{
+border: 2px solid #706C5B;
+    background-color:  #706C5B;
+    color: #2CAFDF;
+}
+.socialicons{
+    margin-left: 25%;
+}
+.hdr-strip-one{
+
+  background: url(../img/1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 300px;
+    color: white;
+
+}
