@@ -13,8 +13,9 @@
 }
 .logo-strip{
  color: #C2C2C2;
+
     height: 500px;
-    background: url(../img/default.jpg);
+    background: url(../img/1.jpg);
     background-size: cover;
     overflow: hidden;
 }
@@ -81,4 +82,25 @@ font-family: 'Sacramento', cursive;
 
 .property{
     margin-top: 30px;
+     background: #F7F7F7;
+}
+.about-large{
+ margin-top: 30px;
+
+}
+.seemore{
+    border: 2px solid #00A7E6;
+    height: 40px;
+    width: 120px;
+    padding-left: 30px;
+    padding-top: 7px;
+    text-transform: uppercase;
+    font-weight: bold;
+ color: #67717C;
+margin-left: 700%;
+    cursor: pointer;
+}
+.seemore:hover{
+  border: 2px solid #00A7E6;
+    background-color: #00A7E6;
 }
