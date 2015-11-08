@@ -208,6 +208,10 @@ border: 2px solid #706C5B;
     font-family: 'Armata', sans-serif;
 
 }
+.prop{
+     height: 200px;
+
+}
 .prp-tiltle{
 
     text-transform: uppercase;
@@ -215,7 +219,7 @@ border: 2px solid #706C5B;
 }
 .prp-location{
     color: #A89EAB;
-    margin-top: 10px;
+
 }
 .division{
      margin-top: 80px;
