@@ -120,4 +120,25 @@ margin-top: 30px;
 .west{
     font-family: 'Armata', sans-serif;
 }
+ #myOverlay1 {
+                width:600px;
+                height:400px;
+            }
+  #myOverlay4 {
+                width:600px;
+                height:400px;
+            }
+            #myOverlay2 {
+
+                height:50%;
+            }
+            #myOverlay3 {
+
+            }
+.logo-popup{
+ border-bottom: 2px solid #716558;
+}
+
+.search-bar{
+    margin-top: 10px;
 }
