@@ -203,3 +203,21 @@ border: 2px solid #706C5B;
     color: white;
 
 }
+.properties{
+ margin-top: 30px;
+    font-family: 'Armata', sans-serif;
+
+}
+.prp-tiltle{
+
+    text-transform: uppercase;
+
+}
+.prp-location{
+    color: #A89EAB;
+    margin-top: 10px;
+}
+.division{
+     margin-top: 80px;
+    border-bottom: 1px solid #A89EAB;
+}
