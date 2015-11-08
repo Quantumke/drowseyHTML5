@@ -3,6 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>
     </title>
+    <link rel="stylesheet" href="css/overlay.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/materialize.css">
     <link rel="stylesheet" href="css/font-awesome-4.4.0/css/font-awesome.css">
@@ -50,13 +51,23 @@
                 Find a house in a jiff
               </div>
               <div class="buttons col s12">
-                  <div class="buttn">
-                       SEARCH
-                   </div>
 
-                    <div class="buttn2">
+
+
+                      <div id="container" data-overlay-page-wrap>
+
+			<a id="overlayTrigger2" href="#myOverlay2" data-overlay-trigger>
+                       <div class="buttn">
+                       SEARCH
+                   </div> </a>
+
+                   <a id="overlayTrigger2" href="#myOverlay2" data-overlay-trigger>
+                       <div class="buttn2">
                        Book
-                   </div>
+                   </div></a>
+
+		</div>
+
 
               </div>
 
@@ -350,12 +361,70 @@
     </div>
 </div>
 
+ <div style="display:none;">
+			<!-- Each overlay needs an id. The aria-labelledby is not required but is best practice -->
+
+
+
+
+			<div id="myOverlay2" aria-labelledby="myOverlay2Heading" data-overlay-container-class="slide-down">
+			<div class="container">
+			    <div class="row">
+			        <div class="logo-popup col s12 m12 l12 ">
+			            <img src="img/logo.png">
+			            <span style="color:#00A7E6; margin-top:30px;position:absolute;font-family: 'Sacramento', cursive;
+    font-size: 30px;font-weight: bolder;">Wambu</span>
+                  <span style="color:#716558; margin-top:30px;position:absolute;font-family: 'Sacramento', cursive;
+    font-size: 30px;font-weight: bolder;margin-left:100px">Realtors</span>
+			        </div>
+
+			        <div class="search-bar">
+			          <div class="input-field col s3 m3 l3">
+             <input id="bathrooms" type="text" >
+          <label for="Bathrooms">Bathrooms</label>
+        </div>
+                 <div class="input-field col s3 m3 l3">
+             <input id="bedrooms" type="text" >
+          <label for="Bedrooms">Bedrooms</label>
+        </div>
+
+                 <div class="input-field col s3 m3 l3">
+
+
+    <select class="browser-default">
+      <option value="" disabled selected>Estate</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </select>
+  </div>
+  <div class="btnsearch col s12 l12 m12" style="margin-left: 25%;">
+      <a class="waves-effect waves-light btn"><i class="material-icons right">search</i>Search</a>
+  </div>
+
+
+			        </div>
+			    </div>
+			</div>
+
+			</div>
+
+			<div id="myOverlay3" aria-labelledby="myOverlay2Heading" data-overlay-container-class="slide-down">
+				<h1 id="myOverlay2Heading">TEST CONTENT 2</h1>
+			</div>
+
+
+		</div>
+
 <script>
       $('.fixed-action-btn').openFAB();
      $('.fixed-action-btn').closeFAB();
 
+
+
 </script>
     
+    <script src="js/Overlay.js"></script>
     </body>
 
 </html>
