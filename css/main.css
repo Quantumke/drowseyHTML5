@@ -240,6 +240,7 @@ border: 2px solid #706C5B;
 }
 .bodyofproof{
  margin-top: 30px;
+    margin-left: 25%;
 
 }
 .btnbox{
@@ -265,3 +266,48 @@ border: 2px solid #706C5B;
 #gallery .nav a{width:13px;height:13px;display:block;background: url(../img/nav.png) no-repeat;cursor:pointer;text-indent:-99999px}
 #gallery .nav a:hover{width:13px;height:13px;display:block;background:url(../img/nav.png) no-repeat 0 -13px;cursor:pointer;text-indent:-999em}
 #gallery .nav a.active{width:13px;height:13px;display:block;background:url(../img/nav.png) no-repeat 0 -26px}
+.desc-detailed{
+     font-family: 'Armata', sans-serif;
+}
+.ques{
+   border-bottom: 1px solid black;
+}
+.gplus{
+   background-color: #DB6558;
+    height: 40px;
+    width: 130px;
+    color: white;
+    padding-top: 10px;
+    padding-left: 20px;
+    float: left;
+    margin-left: 10px;
+    cursor: pointer;
+
+}
+.fb{
+   background-color: #466AB3;
+    height: 40px;
+    width: 130px;
+    color: white;
+    padding-top: 10px;
+    padding-left: 20px;
+    float: left;
+    margin-left: 10px;
+    cursor: pointer;
+
+}
+.twitter{
+   background-color: #3BBCEB;
+    height: 40px;
+    width: 130px;
+    color: white;
+    padding-top: 10px;
+    padding-left: 20px;
+    float: left;
+    margin-left: 10px;
+    cursor: pointer
+
+}
+.gplus:hover{
+
+}
