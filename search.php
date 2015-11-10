@@ -79,90 +79,68 @@ try {
                      <div class="btnbox">
                          <?php
 
-
-                         $todo=$_POST['todo'];
-                         if(isset($todo) and $todo=="search"){
-                             $Bathrooms=$_POST['Bathrooms'];
-                             $bedrooms=$_POST['bedrooms'];
-                             $estate=$_POST['estate'];
-
-
-                             $query="select * from offers where ";
-
-
-//
-//Searching Estate
-                             if(strlen($estate) > 0 ){
-                                 $query.= " estate='$estate' and ";
-                             }
-
-
-//   Bathroom search algorithim
-
-                             $Bathrooms=ltrim($Bathrooms);
-                             $Bathrooms=rtrim($Bathrooms);
-
-                             if(strlen($Bathrooms)>0){
-                                 if($type<>"any"){
-                                     $query .=" name='$Bathrooms'";
-                                 }else{
-                                     $kt=preg_split("/[s,]+/",$Bathrooms);
-                                     while(list($key,$val)=each($kt)){
-                                         if($val<>" " and strlen($val) > 0){$query .= " name like '%$val%' or ";}
-
-                                     }
-                                     $query=substr($query,0,(strLen($query)-3));
-
-                                 }
-                                 $query.=" and ";
-                             }
-
-//
-//Bedroom search algorithim
-                             $bedrooms=ltrim($bedrooms);
-                             $bedrooms=rtrim($bedrooms);
-
-                             if(strlen($bedrooms)>0){
-
-
-                             else{
-                                     $kt2=preg_split("/[s,]+/",$Bathrooms);
-                                     while(list($key2,$val2)=each($kt2)){
-                                         if($val2<>" " and strlen($val2) > 0){$query2 .= " name2 like '%$val2%' or ";}
-
-                                     }
-                                     $query2=substr($query2,0,(strLen($query2)-3));
-
-                                 }
-                                 $query2.=" and ";
-                             }
+$todo=$_POST['todo'];
+if(isset($todo) and $todo=="search"){
+$location=$_POST['location'];
+$search_text=$_POST['search_text'];
+$type=$_POST['type'];
+    mysql_connect('localhost','root','master12!') or die (mysql_error());
+    mysql_select_db('hschema') or die(mysql_error());
+$query="select * from offers where ";
 
 
 
 
+////////// Including select field search ////
+if(strlen($location) > 0 ){
+$query.= " location='$location' and ";
+}
+//// End of class field search ///////////
 
 
 
 
-                             $query=substr($query,0,(strLen($query)-4));
+////////////////////////// Key word search query /////////
+$search_text=ltrim($search_text);
+$search_text=rtrim($search_text);
 
+if(strlen($search_text)>0){
+if($type<>"any"){
+$query .=" beds='$search_text'";
+}else{
+$kt=preg_split("/[s,]+/",$search_text);//Breaking the string to array of words
+// Now let us generate the sql
+while(list($key,$val)=each($kt)){
+if($val<>" " and strlen($val) > 0){$query .= " beds like '%$val%' or ";}
 
-                             foreach ($dbo->query($query) as $t) {
-                               ?>
+}// end of while
+$query=substr($query,0,(strLen($query)-3));
+// this will remove the last or from the string.
+} // end of if else based on type value
+$query.=" and ";
+}// end of if area , if search_text value is entered
+///////////////End of adding key word search query //////////
+
+$query=substr($query,0,(strLen($query)-4));
+foreach ($dbo->query($query) as $t) {
+
+                         ?>
+
 
                    <img src="img/icon-bath.gif">
-                <span style="position: absolute; padding-top: 12px;"><?php echo $t[baths]?> baths</span>
+
+                <span style="position: absolute; padding-top: 12px;"><?php echo $t['baths']?> baths</span>
 
   </div>
 
           <div class="btnbox">
                    <img src="img/icon_bed.png">
-                <span style="position: absolute; padding-top: 12px;"><?php echo $t[beds]?> Bedrooms</span>
+                <span style="position: absolute; padding-top: 12px;"><?php echo $t['beds']?> Bedrooms</span>
 
   </div>
                 <div class="btnbox">
                  <img style="margin-top: 9px;" src="img/icon-money.png">
-                <span style="position: absolute; padding-top: 12px;"><?php echo $t[monthly_rent]?></span>
+                <span style="position: absolute; padding-top: 12px;"><?php echo $t['monthly_rent']?></span>
 
   </div>
 
@@ -200,11 +178,9 @@ try {
             <div class="thumb"><img src="images/extirior.png" width="28" height="28" /></div>
         </div>
         <!--captions-->
-<<<<<<< HEAD:details.php
 
-=======
 
->>>>>>> 063980d08c4f173de7794546642f782ea9248c01:details.html
+
     </div>
 
 
@@ -221,23 +197,24 @@ try {
                   <h5> Description  </h5>
                 </p>
                 <p style="overflow:scroll; height:300px; overflow-x:hidden">
-                    <?php echo $t[description]?>
+                    <?php echo $t['description']?>
                 </p>
             </div>
             <div class="desc-detailed col s6 m6 l6">
               <p>
                   <h5> Details  </h5>
                 </p>
-            <p class="ques">Price: <span class="answer"> <?php echo $t[monthly_rent]?> </span></p>
-             <p class="ques">Location <span class="answer"> <?php echo $t[location]?> </span></p>
-              <p class="ques">Agency: <span class="answer"> <?php echo $t[housing_agency]?> </span></p>
-               <p class="ques">Type: <span class="answer"> <?php echo $t[housing_type]?> </span></p>
-                <p class="ques">Garages: <span class="answer"> <?php echo $t[garages]?> </span></p>
-                 <p class="ques">Bathrooms: <span class="answer"> <?php echo $t[baths]?> </span></p>
+            <p class="ques">Price: <span class="answer"> <?php echo $t['monthly_rent']?> </span></p>
+             <p class="ques">Location <span class="answer"> <?php echo $t['location']?> </span></p>
+              <p class="ques">Agency: <span class="answer"> <?php echo $t['housing_agency']?> </span></p>
+               <p class="ques">Type: <span class="answer"> <?php echo $t['housing_type']?> </span></p>
+                <p class="ques">Garages: <span class="answer"> <?php echo $t['garages']?> </span></p>
+                 <p class="ques">Bathrooms: <span class="answer"> <?php echo $t['baths']?> </span></p>
                  <p>
                      <?php
-                     }
-                     }
+
+}
+                                                                                            }
                      ?>
                      <div class="gplus">
                          <i class="fa fa-google-plus"></i>
@@ -286,6 +263,11 @@ try {
         </div>
     </div>
 </div>
+<div>
+   <?php  echo "<span style='background-color: #F0F000'>$query</span>";
+    echo "<br><br>"; ?>
+</div>
+
 <script>
     var i,c;
 // i=image, c=current
