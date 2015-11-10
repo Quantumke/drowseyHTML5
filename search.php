@@ -1,3 +1,83 @@
+
+   <?php
+
+
+$todo=$_POST['todo'];
+if(isset($todo) and $todo=="search"){
+$Bathrooms=$_POST['Bathrooms'];
+$bedrooms=$_POST['bedrooms'];
+$estate=$_POST['estate'];
+
+
+$query="select * from offers where ";
+
+
+//
+//Searching Estate
+if(strlen($estate) > 0 ){
+$query.= " estate='$estate' and ";
+}
+
+
+//   Bathroom search algorithim
+
+$Bathrooms=ltrim($Bathrooms);
+$Bathrooms=rtrim($Bathrooms);
+
+if(strlen($Bathrooms)>0){
+if($type<>"any"){
+$query .=" name='$Bathrooms'";
+}else{
+$kt=preg_split("/[s,]+/",$Bathrooms);
+while(list($key,$val)=each($kt)){
+if($val<>" " and strlen($val) > 0){$query .= " name like '%$val%' or ";}
+
+}
+$query=substr($query,0,(strLen($query)-3));
+
+}
+$query.=" and ";
+}
+
+//
+//Bedroom search algorithim
+$bedrooms=ltrim($bedrooms);
+$bedrooms=rtrim($bedrooms);
+
+if(strlen($bedrooms)>0){
+
+
+    else{
+$kt2=preg_split("/[s,]+/",$Bathrooms);
+while(list($key2,$val2)=each($kt2)){
+if($val2<>" " and strlen($val2) > 0){$query2 .= " name2 like '%$val2%' or ";}
+
+}
+$query2=substr($query2,0,(strLen($query2)-3));
+
+}
+$query2.=" and ";
+}
+
+
+
+
+
+
+
+
+$query=substr($query,0,(strLen($query)-4));
+
+echo "<span style="background-color: #F0F000">$query</span>";
+echo "<br><br>";
+// Display records ////
+foreach ($dbo->query($query) as $t) {
+echo "$t[id] , $t[name],$t[class],$t[mark],$t[sex]<br>";
+}
+}
+?>
+
+
 <html>
 <head>
     <title></title>
