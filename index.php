@@ -288,9 +288,11 @@ mysqli_close($conn);
                   <span style="color:#716558; margin-top:30px;position:absolute;font-family: 'Sacramento', cursive;
     font-size: 30px;font-weight: bolder;margin-left:100px">Realtors</span>
 			        </div>
-			        <form class="" action="" method="post" enctype="multipart/form-data">
+<!--
+			        <form class="" action="search.php" method="post" enctype="multipart/form-data">
 <input type=hidden name=todo value=search>
 			        <div class="search-bar">
+                  <input type=hidden name=todo value=search>
 			          <div class="input-field col s3 m3 l3">
              <input id="bathrooms" name="bathrooms" type="text" >
           <label for="Bathrooms">Bathrooms</label>
@@ -306,34 +308,72 @@ mysqli_close($conn);
     <select  name="estate" id="estate"class="browser-default">
     <option>ESTATE</option>
 
-     	<?php
-        mysql_connect('localhost' , 'root', 'master12!') or die(mysql_error);
-        mysql_selectdb('hschema') or die(mysql_error);
-										session_start();
-									    $sql="select name from  table_schema_estates  order by name " ;
-  										$result=mysql_query($sql) or die(mysql_error());
-  										$count=mysql_num_rows($result);
-											$i=0;
-											for($i=0;$i<$count; $i++)
-											{
-												$opt=mysql_result($result,$i,"name");
+<!--
+     	//
+        //mysql_connect('localhost' , 'root', 'master12!') or die(mysql_error);
+       // mysql_selectdb('hschema') or die(mysql_error);
+										//session_start();
+									    //$sql="select name from  table_schema_estates  order by name " ;
+  										//$result=mysql_query($sql) or die(mysql_error());
+  										//$count=mysql_num_rows($result);
+											//$i=0;
+											//for($i=0;$i<$count; $i++)
+											//{
+											//	$opt=mysql_result($result,$i,"name");
 
-												echo("<option>$opt</option>");
+												//echo("<option>$opt</option>");
 
 
-											}
+											//}
 
-										?>
+										//?>
+<!--
     </select>
   </div>
   <div class="btnsearch col s12 l12 m12"  style="margin-left: 25%;">
-      <a  class="waves-effect waves-light btn"><i class="material-icons right">search</i>Search</a>
+   <input type=submit value=Search>
   </div>
 
 
 			        </div>
 			        </form>
+-->
 
+
+
+<?php
+
+$host_name = "localhost";
+$database = "hschema"; // Change your database nae
+$username = "root";          // Your database user id
+$password = "master12!";          // Your password
+
+try {
+    $dbo = new PDO('mysql:host='.$host_name.';dbname='.$database, $username, $password);
+} catch (PDOException $e) {
+    print "Error!: " . $e->getMessage() . "<br/>";
+    die();
+}
+?>
+                    <div class="col s12 m12 l12">
+
+			        <?Php
+echo "<form method=post action='search.php'><input type=hidden name=todo value=search>";
+$q="select distinct name from table_schema_estates";
+echo " <div class='input-field col s3 m3 l3'>
+<select name=location class='browser-default'><option value=''>Any Estate</option>";
+foreach ($dbo->query($q) as $n) {
+echo "<option value=$n[name]>$n[name]</option>";
+}
+echo "</select></div>";
+
+echo "<div class='input-field col s3 m3 l3'>Bedrooms<input type=text name=search_text ><input type=submit value=Search>
+<input type=radio name=type value=any checked> <input class='btnbox' type=radio name=type value=exact>
+</div>
+</form>
+";
+?>
+</div>
 
 
 
