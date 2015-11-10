@@ -1,3 +1,6 @@
+
+<?php include 'db-drivers.php'?>
+
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -117,195 +120,85 @@
 
 
 
+
+
+
+
 <div class="property">
     
     <div class="container">
         <div class="row">
+
+<?php
+
+    $sql = "SELECT * FROM offers LIMIT 12";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+        ?>
+
             <div class="unit col s12 l3 m3 ">
                  <div class="card">
     <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="img/house.jpg">
+      <img class="activator" src="img/<?php echo $row['image'] ?>">
     </div>
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-4">
-      <img src="img/icon-bath.gif" height="26" width="26"> 4 &nbsp;
-      <img src="img/icon_bed.png">6
+      <img src="img/icon-bath.gif" height="26" width="26"> <?php echo $row['baths'] ?> &nbsp;
+      <img src="img/icon_bed.png"><?php echo $row['beds'] ?>
       
       
       <i class="material-icons right">more_vert</i></span>
-      <p>Ksh.12,000</p>
+      <p>KSH. &nbsp;<?php echo $row['monthly_rent'] ?></p>
     </div>
     <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">4 Bedroomed Apartment<i class="material-icons right">close</i></span>
-      <p>This appartment is locaated in co site opposite FGS has ample parking space and night guard</p>
+      <span class="card-title grey-text text-darken-4"><?php echo $row['housing_type'] ?><i class="material-icons right">close</i></span>
+      <p><?php echo $row['sht_desc'] ?></p>
+      <p><a href="details.php?id=<?php echo $row['id'] ?>">More</a></p>
     </div>
   </div>
+
+
             </div>
-            
+               <?php
+                }
+} else {
+    echo "0 results";
+}
+
+mysqli_close($conn);
+
+?>
 <!--            NEW ITEM................................................................................-->
        
        
-         <div class="unit col s12 l3 m3 ">
-                 <div class="card">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="img/house.jpg">
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">
-      <img src="img/icon-bath.gif" height="26" width="26"> 4 &nbsp;
-      <img src="img/icon_bed.png">6
-      
-      
-      <i class="material-icons right">more_vert</i></span>
-      <p>Ksh.12,000</p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">4 Bedroomed Apartment<i class="material-icons right">close</i></span>
-      <p>This appartment is locaated in co site opposite FGS has ample parking space and <a href="">...more</a></p>
-    </div>
-  </div>
-            </div>
+
             <!---------------------------------------------new item----------------------------------------------->
             
-              <div class="unit col s12 l3 m3 ">
-                 <div class="card">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="img/house.jpg">
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">
-      <img src="img/icon-bath.gif" height="26" width="26"> 4 &nbsp;
-      <img src="img/icon_bed.png">6
-      
-      
-      <i class="material-icons right">more_vert</i></span>
-      <p>Ksh.12,000</p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">4 Bedroomed Apartment<i class="material-icons right">close</i></span>
-      <p>This appartment is locaated in co site opposite FGS has ample parking space and night guard</p>
-    </div>
-  </div>
-            </div>
+
             
 <!--                                           new item-->
            
-             <div class="unit col s12 l3 m3 ">
-                 <div class="card">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="img/house.jpg">
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">
-      <img src="img/icon-bath.gif" height="26" width="26"> 4 &nbsp;
-      <img src="img/icon_bed.png">6
-      
-      
-      <i class="material-icons right">more_vert</i></span>
-      <p>Ksh.12,000</p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">4 Bedroomed Apartment<i class="material-icons right">close</i></span>
-      <p>This appartment is locaated in co site opposite FGS has ample parking space and night guard</p>
-    </div>
-  </div>
-            </div>
+
             
             
 <!--                       new item-->
-                             <div class="unit col s12 l3 m3 ">
-                 <div class="card">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="img/house.jpg">
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">
-      <img src="img/icon-bath.gif" height="26" width="26"> 4 &nbsp;
-      <img src="img/icon_bed.png">6
-      
-      
-      <i class="material-icons right">more_vert</i></span>
-      <p>Ksh.12,000</p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">4 Bedroomed Apartment<i class="material-icons right">close</i></span>
-      <p>This appartment is locaated in co site opposite FGS has ample parking space and night guard</p>
-    </div>
-  </div>
-            </div>
+
             
             
 <!--                       new item-->
                       
-                              <div class="unit col s12 l3 m3 ">
-                 <div class="card">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="img/house.jpg">
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">
-      <img src="img/icon-bath.gif" height="26" width="26"> 4 &nbsp;
-      <img src="img/icon_bed.png">6
-      
-      
-      <i class="material-icons right">more_vert</i></span>
-      <p>Ksh.12,000</p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">4 Bedroomed Apartment<i class="material-icons right">close</i></span>
-      <p>This appartment is locaated in co site opposite FGS has ample parking space and night guard</p>
-    </div>
-  </div>
-            </div>
-            
-            
+
 <!--                       new item-->
                      
-                              <div class="unit col s12 l3 m3 ">
-                 <div class="card">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="img/house.jpg">
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">
-      <img src="img/icon-bath.gif" height="26" width="26"> 4 &nbsp;
-      <img src="img/icon_bed.png">6
-      
-      
-      <i class="material-icons right">more_vert</i></span>
-      <p>Ksh.12,000</p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">4 Bedroomed Apartment<i class="material-icons right">close</i></span>
-      <p>This appartment is locaated in co site opposite FGS has ample parking space and night guard</p>
-    </div>
-  </div>
-            </div>
-            
+
             
 <!--                       new item-->
                       
                       
-                              <div class="unit col s12 l3 m3 ">
-                 <div class="card">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="img/house.jpg">
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">
-      <img src="img/icon-bath.gif" height="26" width="26"> 4 &nbsp;
-      <img src="img/icon_bed.png">6
-      
-      
-      <i class="material-icons right">more_vert</i></span>
-      <p>Ksh.12,000</p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">4 Bedroomed Apartment<i class="material-icons right">close</i></span>
-      <p>This appartment is locaated in co site opposite FGS has ample parking space and night guard</p>
-    </div>
-  </div>
-            </div>
+
             
             
 <!--                       new item-->
