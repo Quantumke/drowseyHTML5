@@ -288,7 +288,8 @@ mysqli_close($conn);
                   <span style="color:#716558; margin-top:30px;position:absolute;font-family: 'Sacramento', cursive;
     font-size: 30px;font-weight: bolder;margin-left:100px">Realtors</span>
 			        </div>
-
+			        <form class="" action="" method="post" enctype="multipart/form-data">
+<input type=hidden name=todo value=search>
 			        <div class="search-bar">
 			          <div class="input-field col s3 m3 l3">
              <input id="bathrooms" type="text" >
@@ -303,18 +304,36 @@ mysqli_close($conn);
 
 
     <select class="browser-default">
-      <option value="" disabled selected>Estate</option>
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
+    <option>ESTATE</option>
+
+     	<?php
+        mysql_connect('localhost' , 'root', 'master12!') or die(mysql_error);
+        mysql_selectdb('hschema') or die(mysql_error);
+										session_start();
+									    $sql="select name from  table_schema_estates  order by name " ;
+  										$result=mysql_query($sql) or die(mysql_error());
+  										$count=mysql_num_rows($result);
+											$i=0;
+											for($i=0;$i<$count; $i++)
+											{
+												$opt=mysql_result($result,$i,"name");
+
+												echo("<option>$opt</option>");
+
+
+											}
+
+										?>
     </select>
   </div>
-  <div class="btnsearch col s12 l12 m12" style="margin-left: 25%;">
-      <a class="waves-effect waves-light btn"><i class="material-icons right">search</i>Search</a>
+  <div class="btnsearch col s12 l12 m12"  style="margin-left: 25%;">
+      <a  class="waves-effect waves-light btn"><i class="material-icons right">search</i>Search</a>
   </div>
 
 
 			        </div>
+			        </form>
+
 			    </div>
 			</div>
 
