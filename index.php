@@ -292,18 +292,18 @@ mysqli_close($conn);
 <input type=hidden name=todo value=search>
 			        <div class="search-bar">
 			          <div class="input-field col s3 m3 l3">
-             <input id="bathrooms" type="text" >
+             <input id="bathrooms" name="bathrooms" type="text" >
           <label for="Bathrooms">Bathrooms</label>
         </div>
                  <div class="input-field col s3 m3 l3">
-             <input id="bedrooms" type="text" >
+             <input id="bedrooms" name="bedrooms" type="text" >
           <label for="Bedrooms">Bedrooms</label>
         </div>
 
                  <div class="input-field col s3 m3 l3">
 
 
-    <select class="browser-default">
+    <select  name="estate" id="estate"class="browser-default">
     <option>ESTATE</option>
 
      	<?php
@@ -333,6 +333,11 @@ mysqli_close($conn);
 
 			        </div>
 			        </form>
+
+
+
+
+
 
 			    </div>
 			</div>
