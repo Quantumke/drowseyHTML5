@@ -1,79 +1,16 @@
 
-   <?php
+<?php
 
+$host_name = "localhost";
+$database = "hschema"; // Change your database nae
+$username = "root";          // Your database user id
+$password = "master12!";          // Your password
 
-$todo=$_POST['todo'];
-if(isset($todo) and $todo=="search"){
-$Bathrooms=$_POST['Bathrooms'];
-$bedrooms=$_POST['bedrooms'];
-$estate=$_POST['estate'];
-
-
-$query="select * from offers where ";
-
-
-//
-//Searching Estate
-if(strlen($estate) > 0 ){
-$query.= " estate='$estate' and ";
-}
-
-
-//   Bathroom search algorithim
-
-$Bathrooms=ltrim($Bathrooms);
-$Bathrooms=rtrim($Bathrooms);
-
-if(strlen($Bathrooms)>0){
-if($type<>"any"){
-$query .=" name='$Bathrooms'";
-}else{
-$kt=preg_split("/[s,]+/",$Bathrooms);
-while(list($key,$val)=each($kt)){
-if($val<>" " and strlen($val) > 0){$query .= " name like '%$val%' or ";}
-
-}
-$query=substr($query,0,(strLen($query)-3));
-
-}
-$query.=" and ";
-}
-
-//
-//Bedroom search algorithim
-$bedrooms=ltrim($bedrooms);
-$bedrooms=rtrim($bedrooms);
-
-if(strlen($bedrooms)>0){
-
-
-    else{
-$kt2=preg_split("/[s,]+/",$Bathrooms);
-while(list($key2,$val2)=each($kt2)){
-if($val2<>" " and strlen($val2) > 0){$query2 .= " name2 like '%$val2%' or ";}
-
-}
-$query2=substr($query2,0,(strLen($query2)-3));
-
-}
-$query2.=" and ";
-}
-
-
-
-
-
-
-
-
-$query=substr($query,0,(strLen($query)-4));
-
-echo "<span style="background-color: #F0F000">$query</span>";
-echo "<br><br>";
-// Display records ////
-foreach ($dbo->query($query) as $t) {
-echo "$t[id] , $t[name],$t[class],$t[mark],$t[sex]<br>";
-}
+try {
+    $dbo = new PDO('mysql:host='.$host_name.';dbname='.$database, $username, $password);
+} catch (PDOException $e) {
+    print "Error!: " . $e->getMessage() . "<br/>";
+    die();
 }
 ?>
 
@@ -117,6 +54,7 @@ echo "$t[id] , $t[name],$t[class],$t[mark],$t[sex]<br>";
                     <div class="logo-one">
                         <div class="container">
                             <div class="row">
+
                                 <div class="logo-one-one col s9 m9 l9">
                                     <img src="img/logo.png">
                                       <span style="color:#00A7E6; margin-top:30px;position:absolute;font-family: 'Sacramento', cursive;
@@ -139,19 +77,92 @@ echo "$t[id] , $t[name],$t[class],$t[mark],$t[sex]<br>";
 
                 <div class="col s12 l12 m12">
                      <div class="btnbox">
+                         <?php
+
+
+                         $todo=$_POST['todo'];
+                         if(isset($todo) and $todo=="search"){
+                             $Bathrooms=$_POST['Bathrooms'];
+                             $bedrooms=$_POST['bedrooms'];
+                             $estate=$_POST['estate'];
+
+
+                             $query="select * from offers where ";
+
+
+//
+//Searching Estate
+                             if(strlen($estate) > 0 ){
+                                 $query.= " estate='$estate' and ";
+                             }
+
+
+//   Bathroom search algorithim
+
+                             $Bathrooms=ltrim($Bathrooms);
+                             $Bathrooms=rtrim($Bathrooms);
+
+                             if(strlen($Bathrooms)>0){
+                                 if($type<>"any"){
+                                     $query .=" name='$Bathrooms'";
+                                 }else{
+                                     $kt=preg_split("/[s,]+/",$Bathrooms);
+                                     while(list($key,$val)=each($kt)){
+                                         if($val<>" " and strlen($val) > 0){$query .= " name like '%$val%' or ";}
+
+                                     }
+                                     $query=substr($query,0,(strLen($query)-3));
+
+                                 }
+                                 $query.=" and ";
+                             }
+
+//
+//Bedroom search algorithim
+                             $bedrooms=ltrim($bedrooms);
+                             $bedrooms=rtrim($bedrooms);
+
+                             if(strlen($bedrooms)>0){
+
+
+                             else{
+                                     $kt2=preg_split("/[s,]+/",$Bathrooms);
+                                     while(list($key2,$val2)=each($kt2)){
+                                         if($val2<>" " and strlen($val2) > 0){$query2 .= " name2 like '%$val2%' or ";}
+
+                                     }
+                                     $query2=substr($query2,0,(strLen($query2)-3));
+
+                                 }
+                                 $query2.=" and ";
+                             }
+
+
+
+
+
+
+
+
+                             $query=substr($query,0,(strLen($query)-4));
+
+
+                             foreach ($dbo->query($query) as $t) {
+                               ?>
+
                    <img src="img/icon-bath.gif">
-                <span style="position: absolute; padding-top: 12px;">5 baths</span>
+                <span style="position: absolute; padding-top: 12px;"><?php echo $t[baths]?> baths</span>
 
   </div>
 
           <div class="btnbox">
                    <img src="img/icon_bed.png">
-                <span style="position: absolute; padding-top: 12px;">5 Bedrooms</span>
+                <span style="position: absolute; padding-top: 12px;"><?php echo $t[beds]?> Bedrooms</span>
 
   </div>
                 <div class="btnbox">
                  <img style="margin-top: 9px;" src="img/icon-money.png">
-                <span style="position: absolute; padding-top: 12px;">12,000 p.m</span>
+                <span style="position: absolute; padding-top: 12px;"><?php echo $t[monthly_rent]?></span>
 
   </div>
 
@@ -210,24 +221,24 @@ echo "$t[id] , $t[name],$t[class],$t[mark],$t[sex]<br>";
                   <h5> Description  </h5>
                 </p>
                 <p style="overflow:scroll; height:300px; overflow-x:hidden">
-                     Aenean lectus tortor, pulvinar auctor rutrum et, elementum eu eros. Fusce et lorem venenatis, varius dui ac, porttitor orci. Proin et leo vel risus accumsan condimentum. Sed nec ex porta, bibendum eros eget, vehicula quam. Suspendisse elementum purus congue lectus porttitor, id semper dui dignissim. Etiam sit amet dapibus nisl. Cras sollicitudin ut dui sed lobortis. Nulla pulvinar augue eu leo suscipit facilisis. Integer vel efficitur urna, at venenatis urna.
-
-Mauris placerat et orci vel luctus. Nulla scelerisque nibh eu egestas elementum. Vestibulum at urna ac odio porta interdum sit amet at sem. Suspendisse imperdiet, leo sed volutpat faucibus, turpis mauris maximus augue, quis dignissim neque purus ac lorem. Proin nec ultricies velit. Aliquam quis tortor at dolor imperdiet euismod. Proin eleifend pretium massa, eu sodales magna sagittis et.
-
+                    <?php echo $t[description]?>
                 </p>
             </div>
             <div class="desc-detailed col s6 m6 l6">
               <p>
                   <h5> Details  </h5>
                 </p>
-            <p class="ques">Price: <span class="answer"> KES 12,000 </span></p>
-             <p class="ques">Location <span class="answer"> Co-Site </span></p>
-              <p class="ques">Agency: <span class="answer"> Wambu </span></p>
-               <p class="ques">Type: <span class="answer"> One Bedroom </span></p>
-                <p class="ques">Garages: <span class="answer"> 1 </span></p>
-                 <p class="ques">Bathrooms: <span class="answer"> 2 </span></p>
+            <p class="ques">Price: <span class="answer"> <?php echo $t[monthly_rent]?> </span></p>
+             <p class="ques">Location <span class="answer"> <?php echo $t[location]?> </span></p>
+              <p class="ques">Agency: <span class="answer"> <?php echo $t[housing_agency]?> </span></p>
+               <p class="ques">Type: <span class="answer"> <?php echo $t[housing_type]?> </span></p>
+                <p class="ques">Garages: <span class="answer"> <?php echo $t[garages]?> </span></p>
+                 <p class="ques">Bathrooms: <span class="answer"> <?php echo $t[baths]?> </span></p>
                  <p>
-
+                     <?php
+                     }
+                     }
+                     ?>
                      <div class="gplus">
                          <i class="fa fa-google-plus"></i>
 <span style="font-size:small">Google Plus</span>
