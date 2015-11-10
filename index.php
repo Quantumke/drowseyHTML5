@@ -64,24 +64,22 @@
     font-size: 30px;font-weight: bolder;margin-left:100px">Realtors</span>
               </div>
 
-              <div class="site-tile col s12">
-                  <p>Find Rental houses around You</p>
+              <div class="site-tile col s12 l12 m12">
+                  <p style="color:#00A7E6">Find Rental houses around You</p>
               </div>
-               <div class="site-title col s12">
-                Find a house in a jiff
-              </div>
+             
               <div class="buttons col s12">
 
 
 
                       <div id="container" data-overlay-page-wrap>
 
-			<a id="overlayTrigger2" href="#myOverlay2" data-overlay-trigger>
+			<a style="color:white" id="overlayTrigger2" href="#myOverlay2" data-overlay-trigger>
                        <div class="buttn">
                        SEARCH
                    </div> </a>
 
-                   <a id="overlayTrigger2" href="#myOverlay2" data-overlay-trigger>
+                   <a style="color:white" id="overlayTrigger2" href="#myOverlay2" data-overlay-trigger>
                        <div class="buttn2">
                        Book
                    </div></a>
