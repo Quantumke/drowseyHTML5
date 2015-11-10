@@ -1,3 +1,9 @@
+<?php
+$id=$_GET["id"];
+require ('db-drivers.php');
+?>
+
+
 <html>
 <head>
     <title></title>
@@ -56,22 +62,29 @@
 <div class="bodyofproof">
     <div class="container">
         <div class="row">
+                <?php
+$sql = "SELECT * from offers where id='$id'";
+$result = $conn->query($sql);
 
-                <div class="col s12 l12 m12">
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+
+ ?>           <div class="col s12 l12 m12">
                      <div class="btnbox">
                    <img src="img/icon-bath.gif">
-                <span style="position: absolute; padding-top: 12px;">5 baths</span>
+                <span style="position: absolute; padding-top: 12px;"><?php echo $row["baths"] ?> baths</span>
 
   </div>
 
           <div class="btnbox">
                    <img src="img/icon_bed.png">
-                <span style="position: absolute; padding-top: 12px;">5 Bedrooms</span>
+                <span style="position: absolute; padding-top: 12px;"><?php echo $row["beds"] ?> Bedrooms</span>
 
   </div>
                 <div class="btnbox">
                  <img style="margin-top: 9px;" src="img/icon-money.png">
-                <span style="position: absolute; padding-top: 12px;">12,000 p.m</span>
+                <span style="position: absolute; padding-top: 12px;"><?php echo $row["monthly_rent"] ?> p.m</span>
 
   </div>
 
@@ -109,11 +122,7 @@
             <div class="thumb"><img src="images/extirior.png" width="28" height="28" /></div>
         </div>
         <!--captions-->
-<<<<<<< HEAD:details.php
-       
-=======
 
->>>>>>> 063980d08c4f173de7794546642f782ea9248c01:details.html
     </div>
 
 
@@ -130,23 +139,29 @@
                   <h5> Description  </h5>
                 </p>
                 <p style="overflow:scroll; height:300px; overflow-x:hidden">
-                     Aenean lectus tortor, pulvinar auctor rutrum et, elementum eu eros. Fusce et lorem venenatis, varius dui ac, porttitor orci. Proin et leo vel risus accumsan condimentum. Sed nec ex porta, bibendum eros eget, vehicula quam. Suspendisse elementum purus congue lectus porttitor, id semper dui dignissim. Etiam sit amet dapibus nisl. Cras sollicitudin ut dui sed lobortis. Nulla pulvinar augue eu leo suscipit facilisis. Integer vel efficitur urna, at venenatis urna.
-
-Mauris placerat et orci vel luctus. Nulla scelerisque nibh eu egestas elementum. Vestibulum at urna ac odio porta interdum sit amet at sem. Suspendisse imperdiet, leo sed volutpat faucibus, turpis mauris maximus augue, quis dignissim neque purus ac lorem. Proin nec ultricies velit. Aliquam quis tortor at dolor imperdiet euismod. Proin eleifend pretium massa, eu sodales magna sagittis et.
-
+                    <?php echo $row["description"] ?>
                 </p>
             </div>
             <div class="desc-detailed col s6 m6 l6">
               <p>
                   <h5> Details  </h5>
                 </p>
-            <p class="ques">Price: <span class="answer"> KES 12,000 </span></p>
-             <p class="ques">Location <span class="answer"> Co-Site </span></p>
-              <p class="ques">Agency: <span class="answer"> Wambu </span></p>
-               <p class="ques">Type: <span class="answer"> One Bedroom </span></p>
-                <p class="ques">Garages: <span class="answer"> 1 </span></p>
-                 <p class="ques">Bathrooms: <span class="answer"> 2 </span></p>
+            <p class="ques">Price: <span class="answer"> <?php echo $row["monthly_rent"] ?></span></p>
+             <p class="ques">Location <span class="answer"> <?php echo $row["location"] ?> </span></p>
+              <p class="ques">Agency: <span class="answer"> <?php echo $row["housing_agency"] ?> </span></p>
+               <p class="ques">Type: <span class="answer"> <?php echo $row["housing_type"] ?> </span></p>
+                <p class="ques">Garages: <span class="answer"> <?php echo $row["garages"] ?> </span></p>
+                 <p class="ques">Bathrooms: <span class="answer"> <?php echo $row["baths"] ?> </span></p>
                  <p>
+                     <?php
+                     }
+                     } else {
+                         echo "0 results";
+                     }
+                     $conn->close();
+                     ?>
+
+
 
                      <div class="gplus">
                          <i class="fa fa-google-plus"></i>
