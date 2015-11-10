@@ -109,7 +109,11 @@
             <div class="thumb"><img src="images/extirior.png" width="28" height="28" /></div>
         </div>
         <!--captions-->
+<<<<<<< HEAD:details.php
        
+=======
+
+>>>>>>> 063980d08c4f173de7794546642f782ea9248c01:details.html
     </div>
 
 
